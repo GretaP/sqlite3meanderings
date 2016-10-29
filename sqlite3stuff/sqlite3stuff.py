@@ -5,8 +5,20 @@
 #4. LALALALLALALALALALALALALLALALAAAAAAAAAAAAAAA
 #5. I've been on lots of pain meds today.  TEHEEE!
 
+#Reminder: command line sqlite3
+
 
 import sqlite3
+
+#below: simple way to do similar thing, added after the now commented out section didn't appear to work
+
+conn = sqlite3.connect('pokie.db')
+c = conn.cursor()
+c.execute('''CREATE TABLE testing2 (name text, cost real)''')
+val = ("halo", 42)
+c.execute("INSERT INTO testing2 VALUES (?,?)", val)
+conn.commit()
+conn.close()
 
 #create a db or connect to it, create table
 #with sqlite3.connect('pokie.db') as db:
@@ -19,14 +31,6 @@ import sqlite3
 #    cursor.execute(sql)
 #    db.commit()
 
-conn = sqlite3.connect('pokie.db')
-c = conn.cursor()
-c.execute('''CREATE TABLE testing2 (name text, cost real)''')
-val = ("halo", 42)
-c.execute("INSERT INTO testing2 VALUES (?,?)", val)
-conn.commit()
-conn.close()
-
 #insert some values... the dumb way
 #values = ("hi there", 22)
 #def insert_values(data):
@@ -36,3 +40,7 @@ conn.close()
  #       cursor.execute(sql, data)
  #       db.commit()
 #insert_values(values)
+
+
+
+
